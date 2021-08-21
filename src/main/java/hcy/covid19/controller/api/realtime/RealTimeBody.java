@@ -1,35 +1,28 @@
-package hcy.covid19.domain;
+package hcy.covid19.controller.api.realtime;
 
 import lombok.Getter;
 import lombok.ToString;
 
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
 @ToString
 @XmlRootElement(name = "body")
-public class Vaccination {
-
-    @XmlElement(name = "dataTime")
-    private String dataTime;
+public class RealTimeBody {
 
     @XmlElement(name = "items")
-    private Items items;
+    private RealTimeItems realTimeItems;
 
     @Getter
     @ToString
     @XmlRootElement(name = "items")
-    public static class Items {
+    public static class RealTimeItems {
 
         @XmlElement(name = "item")
-        private List<Item> items;
+        private List<RealTimeItem> realTimeItems;
 
     }
 
-    public Vaccination() {
-    }
 }

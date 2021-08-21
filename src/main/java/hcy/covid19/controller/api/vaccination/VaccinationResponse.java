@@ -1,4 +1,4 @@
-package hcy.covid19.domain;
+package hcy.covid19.controller.api.vaccination;
 
 import lombok.Getter;
 import lombok.ToString;
@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class VaccinationResponse {
 
     @XmlElement(name = "body")
-    private Vaccination vaccination;
+    private VaccinationBody vaccination;
 
     public VaccinationResponse() {
     }

@@ -1,12 +1,9 @@
-package hcy.covid19.controller.api;
+package hcy.covid19.controller.api.vaccination;
 
-import hcy.covid19.domain.Vaccination;
-import hcy.covid19.domain.VaccinationResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,9 +16,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,7 +27,7 @@ import java.util.Map;
 public class VaccinationApiController {
 
     @GetMapping
-    public ResponseEntity<Map<String, VaccinationResponse>> home() throws IOException {
+    public ResponseEntity<Map<String, VaccinationResponse>> getVaccinationInfo() throws IOException {
 
         StringBuilder urlBuilder = new StringBuilder("https://nip.kdca.go.kr/irgd/cov19stats.do?list=all");
 //        urlBuilder.append("?" + URLEncoder.encode("serviceKey", "UTF-8") + "=" + URLEncoder.encode("32hmVfmyuzAN/Keh22jiPFEVvGM/v4Ghvm07M0ZFAx0KyNwGs2QjybzOZZd8lyrrx+g4PBVr9B0cQEBvk9mqyw==", "UTF-8"));
@@ -62,7 +57,7 @@ public class VaccinationApiController {
             result.append(line);
         }
 
-        log.info("line : {}", result);
+        log.info("Result : {}", result);
 
         bufferedReader.close();
         connection.disconnect();

@@ -1,4 +1,4 @@
-package hcy.covid19.domain;
+package hcy.covid19.controller.api.vaccination;
 
 import lombok.Getter;
 import lombok.ToString;
@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Getter
 @ToString
 @XmlRootElement(name = "item")
-public class Item {
+public class VaccinationItem {
 
     @XmlElement(name = "tpcd")
     private String tpcd;
